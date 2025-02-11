@@ -23,10 +23,7 @@ const App = () => {
   // Form state
   const [name, setName] = useState('');
   const [role, setRole] = useState('');
-  const [company, setCompany] = useState('');
   const [location, setLocation] = useState('');
-  const [learning, setLearning] = useState('');
-  const [lookingFor, setLookingFor] = useState('');
   const [email, setEmail] = useState('');
   const [githubUsername, setGithubUsername] = useState('');
   const [portfolio, setPortfolio] = useState('');
@@ -41,7 +38,6 @@ const App = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [achievements, setAchievements] = useState('');
   const [interests, setInterests] = useState('');
-  const [supportMe, setSupportMe] = useState('');
   const [codingPhilosophy, setCodingPhilosophy] = useState('');
   const [yearsOfExperience, setYearsOfExperience] = useState('');
   const [preferredWorkEnvironment, setPreferredWorkEnvironment] = useState('');
@@ -323,10 +319,7 @@ const App = () => {
 
     // Create sections only if they have content
     const aboutSection = [
-      company && `- 🏢 Currently working at **${company}**`,
       currentProject && `- 🚀 Working on **${currentProject}**`,
-      learning && `- 📚 Currently learning **${learning}**`,
-      lookingFor && `- 🤝 Looking for help with **${lookingFor}**`,
       preferredWorkEnvironment && `- 💼 Preferred work environment: **${preferredWorkEnvironment}**`,
       funFact && `- ⚡ Fun fact: **${funFact}**`
     ].filter(Boolean).join('\n');
@@ -358,7 +351,7 @@ ${interests}
 ` : '';
 
     const connectSection = [
-      email && `- 📫 Email: **${email}**`,
+      email && `- 📫 Email: [${email}](mailto:${email})`,
       portfolio && `- 🌐 Portfolio: [${portfolio}](${portfolio})`,
       linkedin && `- 💼 LinkedIn: [${linkedin}](https://linkedin.com/in/${linkedin})`
     ].filter(Boolean).join('\n');
@@ -369,20 +362,11 @@ ${interests}
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=${githubUsername}&show_icons=true&theme=radical" alt="GitHub Stats" />
   <br><br>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=${githubUsername}&theme=radical" alt="GitHub Streak" />
-  <br><br>
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=${githubUsername}&theme=radical" alt="GitHub Profile Summary" />
   <br><br>
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${githubUsername}&layout=compact&theme=radical" alt="Most Used Languages" />
 </div>
-
-### 📱 Daily.dev Card
-
-<div align="center">
-  <a href="https://app.daily.dev/${githubUsername}">
-    <img src="https://api.daily.dev/devcards/${githubUsername}.png" width="400" alt="${name}'s Dev Card"/>
-  </a>
-</div>` : '';
+` : '';
 
     const markdown = `<div align="center">
   
@@ -442,7 +426,27 @@ Feel free to reach out for opportunities!
   // Update readme preview whenever fields change
   useEffect(() => {
     setReadme(generateReadme());
-  }, [name, role, company, learning, lookingFor, email, githubUsername, selectedTech, buyMeACoffeeUsername]);
+  }, [
+    name,
+    role,
+    location,
+    email,
+    githubUsername,
+    portfolio,
+    linkedin,
+    funFact,
+    currentProject,
+    openToWork,
+    openToCollab,
+    mentoring,
+    selectedTech,
+    buyMeACoffeeUsername,
+    achievements,
+    interests,
+    codingPhilosophy,
+    yearsOfExperience,
+    preferredWorkEnvironment
+  ]);
 
   // Update copyToClipboard function
   const copyToClipboard = () => {
@@ -757,13 +761,7 @@ Feel free to reach out for opportunities!
                     placeholder="username"
                   />
                   <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                    This will be used for GitHub stats, most used languages, and daily.dev card.
-                    To set up your daily.dev card, make sure to:
-                    <ol className="list-decimal ml-4 mt-1">
-                      <li>Sign up at <a href="https://app.daily.dev" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">daily.dev</a></li>
-                      <li>Connect your GitHub account</li>
-                      <li>Your dev card will be automatically generated</li>
-                    </ol>
+                    This will be used for GitHub stats, and most used languages.
                   </p>
                 </div>
               </div>
@@ -816,7 +814,7 @@ Feel free to reach out for opportunities!
               <h3 className="text-lg font-semibold border-b pb-2 mt-6">Additional Information</h3>
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Coding Philosophy:</label>
+                  <label className="block text-sm font-medium mb-2">(Optional) Coding Philosophy:</label>
                   <textarea 
                     value={codingPhilosophy} 
                     onChange={(e) => setCodingPhilosophy(e.target.value)} 
@@ -826,7 +824,7 @@ Feel free to reach out for opportunities!
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Achievements & Certifications:</label>
+                  <label className="block text-sm font-medium mb-2">(Optional) Achievements & Certifications:</label>
                   <textarea 
                     value={achievements} 
                     onChange={(e) => setAchievements(e.target.value)} 
@@ -836,7 +834,7 @@ Feel free to reach out for opportunities!
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Interests & Hobbies:</label>
+                  <label className="block text-sm font-medium mb-2">(Optional) Interests & Hobbies:</label>
                   <textarea 
                     value={interests} 
                     onChange={(e) => setInterests(e.target.value)} 
