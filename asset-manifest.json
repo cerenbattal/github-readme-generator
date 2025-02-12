@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/github-readme-generator/static/css/main.248e5ca8.css",
-    "main.js": "/github-readme-generator/static/js/main.def46281.js",
+    "main.js": "/github-readme-generator/static/js/main.9fcc127b.js",
     "index.html": "/github-readme-generator/index.html",
     "main.248e5ca8.css.map": "/github-readme-generator/static/css/main.248e5ca8.css.map",
-    "main.def46281.js.map": "/github-readme-generator/static/js/main.def46281.js.map"
+    "main.9fcc127b.js.map": "/github-readme-generator/static/js/main.9fcc127b.js.map"
   },
   "entrypoints": [
     "static/css/main.248e5ca8.css",
-    "static/js/main.def46281.js"
+    "static/js/main.9fcc127b.js"
   ]
 }
