@@ -314,7 +314,7 @@ const App = () => {
     const techIconsHTML = selectedTech.map(tech => {
       const option = techOptions.find(opt => opt.value === tech);
       if (!option) return '';
-      return `<a href="#" target="_blank"><img src="${option.icon}" alt="${option.label}" width="40" height="40" style="margin-right: 8px;"/></a>`;
+      return `<a href="#" target="_blank"><img src="${option.icon}" alt="${option.label}" width="40" height="40" style="margin: 0 4px 8px 4px;"/></a>`;
     }).join('');
 
     // Create sections only if they have content
@@ -359,12 +359,12 @@ ${interests}
     // Only generate stats sections if username is provided
     const githubStatsSection = githubUsername ? `### 📊 GitHub Stats
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=${githubUsername}&show_icons=true&theme=radical" alt="GitHub Stats" />
-  <br><br>
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=${githubUsername}&theme=radical" alt="GitHub Profile Summary" />
-  <br><br>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${githubUsername}&layout=compact&theme=radical" alt="Most Used Languages" />
+<div align="center" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
+<div>
+  <img width="600" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=${githubUsername}&theme=radical" alt="GitHub Profile Summary" />
+</div>
+  <img height="180" src="https://github-readme-stats.vercel.app/api?username=${githubUsername}&show_icons=true&theme=radical" alt="GitHub Stats" />
+  <img height="180" src="https://github-readme-stats.vercel.app/api/top-langs/?username=${githubUsername}&layout=compact&theme=radical" alt="Most Used Languages" />
 </div>
 ` : '';
 
