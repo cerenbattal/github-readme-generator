@@ -215,6 +215,8 @@ const App = () => {
     { label: 'Tailwind CSS', value: 'tailwind', category: 'Frontend', icon: 'https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg' },
     
     // Backend
+    { label: 'C#', value: 'csharp', category: 'Backend', icon: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg' },
+    { label: 'C++', value: 'cpp', category: 'Backend', icon: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg' },
     { label: 'Node.js', value: 'nodejs', category: 'Backend', icon: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg' },
     { label: 'Python', value: 'python', category: 'Backend', icon: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg' },
     { label: 'Django', value: 'django', category: 'Backend', icon: 'https://cdn.worldvectorlogo.com/logos/django.svg' },
